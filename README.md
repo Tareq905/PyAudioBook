@@ -1,5 +1,13 @@
 # PyAudioBook
-A simple audio book created with python.
-
-It will work as like, you have to give input or file here. Then it will start reading automatically by it self. This project is simple but really helpful...!!!
-Just Download the file, save those file in a specific folder. Then open the folder in any python integrated development environment(IDE), run the code there and enjoy.....
+import pyttsx3
+import PyPDF2
+book = open('Exploitation.pdf', 'rb')
+pdfReader = PyPDF2.PdfFileReader(book)
+pages = pdfReader.numPages
+print(pages)
+speaker = pyttsx3.init()
+for num in range(13,pages):
+    page = pdfReader.getPage(17)
+    text = page.extractText()
+    speaker.say(text)
+    speaker.runAndWait()
